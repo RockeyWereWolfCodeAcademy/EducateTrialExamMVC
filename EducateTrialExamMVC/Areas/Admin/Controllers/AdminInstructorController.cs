@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using EducateTrialExamMVC.Areas.ViewModels.AdminInstructorVMs;
+using EducateTrialExamMVC.Contexts;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace EducateTrialExamMVC.Areas.Admin.Controllers
 {
@@ -7,9 +10,25 @@ namespace EducateTrialExamMVC.Areas.Admin.Controllers
     [Authorize(Roles = "Admin")]
     public class AdminInstructorController : Controller
     {
-        public IActionResult Index()
+        readonly EdukateDbContext _context;
+
+        public AdminInstructorController(EdukateDbContext context)
         {
-            return View();
+            _context = context;
         }
+
+        public async Task<IActionResult>  Index()
+        {
+            var data = await _context.Instructors.Select(inst => new AdminInstructorListVM
+            {
+                Id = inst.Id,
+                Name = inst.Name,
+                Surname = inst.Surname,
+                ImgUrl = inst.ImgUrl,
+                Profession = inst.Profession,
+            }).ToListAsync();
+            return View(data);
+        }
+
     }
 }

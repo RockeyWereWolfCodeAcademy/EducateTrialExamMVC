@@ -11,5 +11,7 @@ namespace EducateTrialExamMVC.Contexts
         }
 
         public DbSet<AppUser> Users { get; set; }
+
+        public DbSet<Instructor> Instructors { get; set; }
     }
 }

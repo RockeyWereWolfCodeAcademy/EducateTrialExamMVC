@@ -4,6 +4,7 @@ using EducateTrialExamMVC.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EducateTrialExamMVC.Migrations
 {
     [DbContext(typeof(EdukateDbContext))]
-    partial class EdukateDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240119062837_ChangedInstructorTable")]
+    partial class ChangedInstructorTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

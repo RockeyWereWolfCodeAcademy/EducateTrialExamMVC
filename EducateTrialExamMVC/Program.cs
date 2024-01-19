@@ -44,6 +44,8 @@ namespace EducateTrialExamMVC
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
+            PathConstants.RootPath = app.Environment.WebRootPath;
+
             app.Run();
         }
     }
