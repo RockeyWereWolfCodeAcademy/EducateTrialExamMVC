@@ -1,4 +1,5 @@
 using EducateTrialExamMVC.Contexts;
+using EducateTrialExamMVC.Helpers;
 using EducateTrialExamMVC.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -32,6 +33,8 @@ namespace EducateTrialExamMVC
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseSeedData();
 
             app.MapControllerRoute(
             name: "areas",
